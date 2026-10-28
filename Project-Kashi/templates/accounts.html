@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>All Accounts</h2>
+<table>
+  <tr><th>Account No</th><th>Type</th><th>Balance</th><th>Status</th><th>Branch</th><th>Holder</th></tr>
+  {% for r in rows %}
+  <tr>
+    <td>{{ r.AccountNumber }}</td>
+    <td>{{ r.AccountType }}</td>
+    <td>{{ r.Balance }}</td>
+    <td>{{ r.Status }}</td>
+    <td>{{ r.BranchName }}</td>
+    <td>{{ r.HolderName }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

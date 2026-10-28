@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Transfer</h2>
+<form method="post">
+  <label>From account</label>
+  <input type="text" name="from_acc" required>
+  <label>To account</label>
+  <input type="text" name="to_acc" required>
+  <label>Amount</label>
+  <input type="number" name="amount" step="0.01" min="0.01" required>
+  <button type="submit">Transfer</button>
+</form>
+{% endblock %}

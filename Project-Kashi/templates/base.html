@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Project Kashi Bank</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/register">Open Account</a>
+    <a href="/deposit">Deposit</a>
+    <a href="/withdraw">Withdraw</a>
+    <a href="/transfer">Transfer</a>
+    <a href="/history">History</a>
+    <a href="/accounts">Accounts</a>
+  </nav>
+  <div class="container">
+    {% with messages = get_flashed_messages() %}
+      {% for m in messages %}
+        <p class="msg">{{ m }}</p>
+      {% endfor %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>

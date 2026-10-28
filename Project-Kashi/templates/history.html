@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Transaction History</h2>
+<form method="get">
+  <label>Account number</label>
+  <input type="text" name="accno" value="{{ accno or '' }}" required>
+  <button type="submit">Show</button>
+</form>
+{% if rows %}
+<table>
+  <tr><th>Date</th><th>Type</th><th>Amount</th><th>Reference</th><th>Status</th><th>Description</th></tr>
+  {% for r in rows %}
+  <tr>
+    <td>{{ r.TransactionDate }}</td>
+    <td>{{ r.TransactionType }}</td>
+    <td>{{ r.Amount }}</td>
+    <td>{{ r.ReferenceNumber }}</td>
+    <td>{{ r.TransactionStatus }}</td>
+    <td>{{ r.Description }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% elif accno %}
+<p>No transactions found.</p>
+{% endif %}
+{% endblock %}
